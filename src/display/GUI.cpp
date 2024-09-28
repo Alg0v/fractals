@@ -48,7 +48,7 @@ namespace GUI {
             exit(1);
         }
 
-        window = SDL_CreateWindow("F-View", -1, -1, 800, 800, SDL_WINDOW_RESIZABLE);
+        window = SDL_CreateWindow("Fractals", -1, -1, 800, 800, SDL_WINDOW_RESIZABLE);
 
         if (window == nullptr) {
             std::cout << "[ERROR: couldn't create a window]:\n";
