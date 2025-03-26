@@ -26,10 +26,10 @@ namespace GUI {
     double offsetX = -4;
     double offsetY = -4;
     long _zoom = 100;
-    uint8_t iterations = 64;
+    uint8_t iterations;
 
-    std::pair<uint8_t, double> (*algorithm) (const math::Complex&, const uint8_t& iterations) = math::julia;
-    int (*coloring) (const std::pair<uint8_t, double>& data) = color::classic;
+    std::pair<uint8_t, double> (*algorithm) (const math::Complex&, const uint8_t& iterations);
+    int (*coloring) (const std::pair<uint8_t, double>& data);
 
 
     bool quit{false};
@@ -40,14 +40,6 @@ namespace GUI {
     float zoom_factor = 0;
 
     void init() {
-        std::cout << "GUI::init() ";
-        int exitcode = SDL_Init(SDL_INIT_VIDEO);
-        if (exitcode < 0) {
-            std::cout << "[ERROR: SDL2 failed to initialize]:\n";
-            std::cout << SDL_GetError() << "\n";
-            exit(1);
-        }
-
         window = SDL_CreateWindow("Fractals", -1, -1, 800, 800, SDL_WINDOW_RESIZABLE);
 
         if (window == nullptr) {
@@ -76,7 +68,7 @@ namespace GUI {
     }
 
 
-    int render_t(void * data){
+    int render_t(void * data){ //WIP
         SDL_Rect * rRect = (SDL_Rect *)data;
 
         printf("GUI::render(): Thread {%i, %i, %i, %i} started\n", rRect->x, rRect->y, rRect->w, rRect->h);

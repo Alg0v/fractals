@@ -38,6 +38,7 @@ namespace GUI {
     extern int threads_running;
     extern bool is_zooming;
     extern float zoom_factor;
+    extern uint8_t iterations;
 }
 
 #endif //UNTITLED_GUI_H
